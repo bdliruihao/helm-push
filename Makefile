@@ -12,6 +12,8 @@ build_aarch64:export GO111MODULE=on
 build_aarch64:
 	@GOOS=linux go build -v --ldflags="-w -X main.Version=$(VERSION) -X main.Revision=$(REVISION)" \
 		-o bin/linux/arm64/helm-cm-push cmd/helm-cm-push/main.go 
+link_windows:
+	@cp bin/windows/arm64/helm-cm-push ./bin/helm-cm-push.aarch64
 
 build_windows: export GOARCH=amd64
 build_windows: export GO111MODULE=on
